@@ -1,0 +1,42 @@
+{
+  "name": "trello-export-renderer",
+  "private": true,
+  "author": "Austin Peterson <austin@akpwebdesign.com>",
+  "license": "MIT",
+  "babelMacros": {
+    "twin": {
+      "preset": "emotion"
+    }
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@emotion/css": "^11.5.0",
+    "@emotion/react": "^11.5.0",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "firebase": "^8",
+    "next": "latest",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-firebase-hooks": "^3",
+    "react-firebaseui": "^5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "@emotion/babel-plugin": "^11.3.0",
+    "@types/node": "^16.11.6",
+    "@types/react": "^17.0.34",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-macros": "^3.1.0",
+    "prettier": "^2.3.1",
+    "tailwindcss": "^2.2.19",
+    "twin.macro": "^2.8.1",
+    "typescript": "^4.4.4"
+  }
+}
