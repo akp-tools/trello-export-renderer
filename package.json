@@ -1,42 +1,36 @@
 {
-  "name": "trello-export-renderer",
   "private": true,
-  "author": "Austin Peterson <austin@akpwebdesign.com>",
-  "license": "MIT",
-  "babelMacros": {
-    "twin": {
-      "preset": "emotion"
-    }
-  },
+  "name": "remix-app-template",
+  "description": "",
+  "license": "",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
+    "build": "remix build",
+    "dev": "remix watch",
+    "postinstall": "remix setup cloudflare-workers",
+    "build:worker": "esbuild --define:process.env.NODE_ENV='\"production\"' --minify --bundle --sourcemap --outdir=dist ./worker",
+    "dev:worker": "esbuild --define:process.env.NODE_ENV='\"development\"' --bundle --sourcemap --outdir=dist ./worker",
+    "start": "miniflare --build-command \"npm run dev:worker\" --watch",
+    "deploy": "npm run build && wrangler publish"
   },
   "dependencies": {
-    "@emotion/css": "^11.5.0",
-    "@emotion/react": "^11.5.0",
-    "@emotion/server": "^11.4.0",
-    "@emotion/styled": "^11.3.0",
-    "firebase": "^8",
-    "next": "latest",
+    "@remix-run/react": "^1.0.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-firebase-hooks": "^3",
-    "react-firebaseui": "^5"
+    "remix": "^1.0.4",
+    "@remix-run/cloudflare-workers": "^1.0.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/preset-react": "^7.16.0",
-    "@babel/preset-typescript": "^7.16.0",
-    "@emotion/babel-plugin": "^11.3.0",
-    "@types/node": "^16.11.6",
-    "@types/react": "^17.0.34",
-    "babel-loader": "^8.2.3",
-    "babel-plugin-macros": "^3.1.0",
-    "prettier": "^2.3.1",
-    "tailwindcss": "^2.2.19",
-    "twin.macro": "^2.8.1",
-    "typescript": "^4.4.4"
-  }
+    "@remix-run/dev": "^1.0.4",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "typescript": "^4.1.2",
+    "@cloudflare/workers-types": "^2.2.2",
+    "esbuild": "0.13.14",
+    "miniflare": "2.0.0-next.3"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "sideEffects": false,
+  "main": "dist/worker.js"
 }

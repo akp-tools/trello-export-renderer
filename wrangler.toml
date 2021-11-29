@@ -1,0 +1,19 @@
+compatibility_date = "2021-11-24"
+name = "trello"
+type = "javascript"
+zone_id = "edf6e422bb996d92713fe367bf86bd86"
+account_id = "41e8d3d6e02c8ffa91e135fc21a0586d"
+
+vars = { ENVIRONMENT = "production" }
+route = "trello.akp.tools/*"
+
+[site]
+bucket = "./public"
+entry-point = "."
+
+[build]
+command = "npm run build:worker"
+watch_dir = "build/index.js"
+
+[build.upload]
+format="service-worker"
